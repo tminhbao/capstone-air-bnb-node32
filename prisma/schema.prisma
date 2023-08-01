@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model book_room {
+  id               Int       @id @default(autoincrement())
+  room_id          Int?
+  arrival_date     DateTime? @db.DateTime(0)
+  departure_date   DateTime? @db.DateTime(0)
+  numbers_of_guest Int?
+  user_id          Int?
+  user             user?     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "book_room_ibfk_1")
+  room             room?     @relation(fields: [room_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "book_room_ibfk_2")
+
+  @@index([room_id], map: "room_id")
+  @@index([user_id], map: "user_id")
+}
+
+model comment {
+  id           Int       @id @default(autoincrement())
+  room_id      Int?
+  user_id      Int?
+  date_comment DateTime? @db.DateTime(0)
+  content      String?   @db.VarChar(1000)
+  stars        Int?
+  user         user?     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "comment_ibfk_1")
+  room         room?     @relation(fields: [room_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "comment_ibfk_2")
+
+  @@index([room_id], map: "room_id")
+  @@index([user_id], map: "user_id")
+}
+
+model place {
+  id         Int     @id @default(autoincrement())
+  place_name String? @db.VarChar(100)
+  province   String? @db.VarChar(100)
+  country    String? @db.VarChar(100)
+  image      String? @db.VarChar(100)
+  room       room[]
+}
+
+model room {
+  id              Int         @id @default(autoincrement())
+  room_name       String?     @db.VarChar(200)
+  user_id         Int?
+  bedroom         Int?
+  bed             Int?
+  bathroom        Int?
+  description     String?     @db.VarChar(500)
+  price           Int?
+  washing_machine Boolean?
+  iron            Boolean?
+  television      Boolean?
+  air_conditioner Boolean?
+  wifi            Boolean?
+  stove           Boolean?
+  parking         Boolean?
+  image           String?     @db.VarChar(500)
+  place_id        Int?
+  book_room       book_room[]
+  comment         comment[]
+  user            user?       @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "room_ibfk_1")
+  place           place?      @relation(fields: [place_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "room_ibfk_2")
+
+  @@index([place_id], map: "place_id")
+  @@index([user_id], map: "user_id")
+}
+
+model user {
+  id        Int         @id @default(autoincrement())
+  full_name String?     @db.VarChar(255)
+  email     String?     @db.VarChar(255)
+  pass_word String?     @db.VarChar(255)
+  phone     String?     @db.VarChar(10)
+  birth_day String?     @db.VarChar(20)
+  gender    String?     @db.VarChar(3)
+  role      String?     @db.VarChar(10)
+  book_room book_room[]
+  comment   comment[]
+  room      room[]
+}
