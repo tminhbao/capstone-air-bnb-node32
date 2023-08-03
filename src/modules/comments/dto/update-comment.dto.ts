@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class CreateCommentDto {
+export class UpdateCommentDto {
   @ApiProperty({
     type: Number,
     example: 1,

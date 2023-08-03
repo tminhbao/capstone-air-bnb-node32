@@ -9,6 +9,7 @@ async function bootstrap() {
   app.use(express.static('.'));
   const config = new DocumentBuilder()
     .setTitle('Node 32 - Airbnb Capstone Project')
+    .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('/', app, document);
