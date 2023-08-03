@@ -78,7 +78,8 @@ model user {
   pass_word String?     @db.VarChar(255)
   phone     String?     @db.VarChar(10)
   birth_day String?     @db.VarChar(20)
-  gender    String?     @db.VarChar(3)
+  gender    Boolean?
+  avatar    String?     @db.VarChar(500)
   role      String?     @db.VarChar(10)
   book_room book_room[]
   comment   comment[]
