@@ -6,6 +6,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { CommentsModule } from './modules/comments/comments.module';
 import { JwtStrategy } from './strategy/jwt.strategy';
 import { UsersModule } from './modules/users/users.module';
+import { PlacesModule } from './modules/places/places.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { UsersModule } from './modules/users/users.module';
     AuthModule,
     CommentsModule,
     UsersModule,
+    PlacesModule,
   ],
   controllers: [AppController],
   providers: [AppService, JwtStrategy],
