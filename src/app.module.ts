@@ -7,6 +7,7 @@ import { CommentsModule } from './modules/comments/comments.module';
 import { JwtStrategy } from './strategy/jwt.strategy';
 import { UsersModule } from './modules/users/users.module';
 import { PlacesModule } from './modules/places/places.module';
+import { RoomsModule } from './modules/rooms/rooms.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { PlacesModule } from './modules/places/places.module';
     CommentsModule,
     UsersModule,
     PlacesModule,
+    RoomsModule,
   ],
   controllers: [AppController],
   providers: [AppService, JwtStrategy],
