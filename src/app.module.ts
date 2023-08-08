@@ -8,6 +8,7 @@ import { JwtStrategy } from './strategy/jwt.strategy';
 import { UsersModule } from './modules/users/users.module';
 import { PlacesModule } from './modules/places/places.module';
 import { RoomsModule } from './modules/rooms/rooms.module';
+import { BookRoomsModule } from './modules/book-rooms/book-rooms.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { RoomsModule } from './modules/rooms/rooms.module';
     UsersModule,
     PlacesModule,
     RoomsModule,
+    BookRoomsModule,
   ],
   controllers: [AppController],
   providers: [AppService, JwtStrategy],
