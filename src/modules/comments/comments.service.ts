@@ -8,10 +8,6 @@ import { UpdateCommentDto } from './dto/update-comment.dto';
 
 @Injectable()
 export class CommentsService {
-  constructor(
-    private readonly jwtService: JwtService,
-    private readonly configService: ConfigService,
-  ) {}
   prisma = new PrismaClient();
 
   async getAllComments(): Promise<any> {
