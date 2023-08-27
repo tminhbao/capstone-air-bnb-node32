@@ -3,13 +3,13 @@ import { ApiProperty } from '@nestjs/swagger';
 export class RegisterDto {
   @ApiProperty({
     type: String,
-    example: 'Nguyễn Văn A',
+    example: 'Trần Minh Bảo',
   })
   full_name: string;
 
   @ApiProperty({
     type: String,
-    example: 'admin@gmail.com',
+    example: 'tmbao@gmail.com',
   })
   email: string;
 

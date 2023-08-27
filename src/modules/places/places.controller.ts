@@ -48,8 +48,13 @@ export class PlacesController {
   getAllPlacesPagination(
     @Query('pageIndex') pageIndex: number,
     @Query('pageSize') pageSize: number,
+    @Query('keyword') keyword: string,
   ): Promise<any> {
-    return this.placesService.getAllPlacesPagination(pageIndex, pageSize);
+    return this.placesService.getAllPlacesPagination(
+      pageIndex,
+      pageSize,
+      keyword,
+    );
   }
 
   @UseGuards(AuthGuard('jwt'))

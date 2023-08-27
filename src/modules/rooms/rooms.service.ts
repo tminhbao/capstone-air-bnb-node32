@@ -47,10 +47,21 @@ export class RoomsService {
     }
   }
 
-  async getRoomsPagination(pageIndex: number, pageSize: number): Promise<any> {
+  async getRoomsPagination(
+    pageIndex: number,
+    pageSize: number,
+    keyword: string,
+  ): Promise<any> {
     try {
       try {
         const res = await this.prisma.room.findMany({
+          where: {
+            OR: [
+              { room_name: { contains: keyword } },
+              { description: { contains: keyword } },
+              { image: { contains: keyword } },
+            ],
+          },
           skip: +pageIndex - 1,
           take: +pageSize,
         });

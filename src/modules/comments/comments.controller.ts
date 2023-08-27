@@ -64,6 +64,7 @@ export class CommentsController {
   @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @HttpCode(201)
+  @ApiParam({ name: 'commentId' })
   @Delete('/:commentId')
   deleteComment(@Param('commentId') commentId: string | number): Promise<any> {
     return this.commentsService.deletComment(commentId);
@@ -71,6 +72,7 @@ export class CommentsController {
 
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
+  @ApiParam({ name: 'roomId' })
   @ApiBearerAuth()
   @HttpCode(201)
   @Get('/get-comments-by-room-id/:roomId')

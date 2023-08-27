@@ -16,7 +16,13 @@ import {
 import { RoomsService } from './rooms.service';
 import { CreateRoomDto } from './dto/create-room.dto';
 import { UpdateRoomDto } from './dto/update-room.dto';
-import { ApiBearerAuth, ApiBody, ApiConsumes, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiBody,
+  ApiConsumes,
+  ApiParam,
+  ApiTags,
+} from '@nestjs/swagger';
 import { AuthGuard } from '@nestjs/passport';
 import { FileUploadDto } from '../users/dto/file-upload.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
@@ -44,10 +50,11 @@ export class RoomsController {
 
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
+  @ApiParam({ name: 'placeId' })
   @ApiBearerAuth()
   @HttpCode(200)
-  @Get('/get-room-by-place-id/:placeId')
-  getRoomByPlaceId(@Query('placeId') placeId: number): Promise<any> {
+  @Get('/get-room-by-place-id')
+  getRoomByPlaceId(@Param('placeId') placeId: number): Promise<any> {
     return this.roomsService.getRoomByPlaceId(placeId);
   }
 
@@ -68,8 +75,9 @@ export class RoomsController {
   getRoomsPagination(
     @Query('pageIndex') pageIndex: number,
     @Query('pageSize') pageSize: number,
+    @Query('keyword') keyword: string,
   ) {
-    return this.roomsService.getRoomsPagination(pageIndex, pageSize);
+    return this.roomsService.getRoomsPagination(pageIndex, pageSize, keyword);
   }
 
   @ApiBearerAuth()

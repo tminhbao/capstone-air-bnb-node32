@@ -78,7 +78,10 @@ export class UsersService {
         skip: +pageIndex - 1,
         take: +pageSize,
         where: {
-          full_name: { contains: keyword },
+          OR: [
+            { full_name: { contains: keyword } },
+            { avatar: { contains: keyword } },
+          ],
         },
       });
       return {

@@ -9,6 +9,7 @@ import {
   HttpCode,
   HttpStatus,
   UseGuards,
+  Req,
 } from '@nestjs/common';
 import { BookRoomsService } from './book-rooms.service';
 import { CreateBookRoomDto } from './dto/create-book-room.dto';
@@ -31,8 +32,8 @@ export class BookRoomsController {
   @ApiBody({ type: CreateBookRoomDto })
   @HttpCode(HttpStatus.CREATED)
   @Post()
-  createNewBookRoom(@Body() body: CreateBookRoomDto) {
-    return this.bookRoomsService.createNewBookRoom(body);
+  createNewBookRoom(@Body() body: CreateBookRoomDto, @Req() req: any) {
+    return this.bookRoomsService.createNewBookRoom(body, req.user.user);
   }
 
   @UseGuards(AuthGuard('jwt'))
@@ -48,8 +49,13 @@ export class BookRoomsController {
   updateBookRoom(
     @Body() body: UpdateBookRoomDto,
     @Param('bookRoomId') bookRoomId: number,
+    @Req() req: any,
   ) {
-    return this.bookRoomsService.updateBookRoom(body, bookRoomId);
+    return this.bookRoomsService.updateBookRoom(
+      body,
+      bookRoomId,
+      req.user.user,
+    );
   }
 
   @UseGuards(AuthGuard('jwt'))

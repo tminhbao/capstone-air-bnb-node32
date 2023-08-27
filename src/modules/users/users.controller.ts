@@ -19,8 +19,9 @@ import { UsersService } from './users.service';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { AuthGuard } from '@nestjs/passport';
-import { ApiConsumes, ApiTags } from '@nestjs/swagger';
+import { ApiBody, ApiConsumes, ApiTags } from '@nestjs/swagger';
 import { CreateUserDto } from './dto/create-user.dto';
+import { FileUploadDto } from './dto/file-upload.dto';
 
 @ApiTags('Users')
 @Controller('api/users')
@@ -80,6 +81,7 @@ export class UsersController {
 
   @UseGuards(AuthGuard('jwt'))
   @HttpCode(201)
+  @ApiBody({ description: 'Choose Image', type: FileUploadDto })
   @ApiConsumes('multipart/form-data')
   @UseInterceptors(
     FileInterceptor('file', {

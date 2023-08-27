@@ -2,6 +2,7 @@ import { Injectable, HttpException } from '@nestjs/common';
 import { CreateBookRoomDto } from './dto/create-book-room.dto';
 import { UpdateBookRoomDto } from './dto/update-book-room.dto';
 import { PrismaClient } from '@prisma/client';
+import { UserDto } from '../users/dto/users.dto';
 
 @Injectable()
 export class BookRoomsService {
@@ -19,22 +20,16 @@ export class BookRoomsService {
     }
   }
 
-  async createNewBookRoom(body: CreateBookRoomDto) {
+  async createNewBookRoom(body: CreateBookRoomDto, user: UserDto) {
     try {
-      const {
-        room_id,
-        arrival_date,
-        departure_date,
-        numbers_of_guest,
-        user_id,
-      } = body;
+      const { room_id, arrival_date, departure_date, numbers_of_guest } = body;
       const res = await this.prisma.book_room.create({
         data: {
           room_id,
           arrival_date: new Date(arrival_date),
           departure_date: new Date(departure_date),
           numbers_of_guest,
-          user_id,
+          user_id: +user.id,
         },
       });
       return {
@@ -60,15 +55,13 @@ export class BookRoomsService {
     }
   }
 
-  async updateBookRoom(body: UpdateBookRoomDto, bookRoomId: number) {
+  async updateBookRoom(
+    body: UpdateBookRoomDto,
+    bookRoomId: number,
+    user: UserDto,
+  ) {
     try {
-      const {
-        room_id,
-        arrival_date,
-        departure_date,
-        numbers_of_guest,
-        user_id,
-      } = body;
+      const { room_id, arrival_date, departure_date, numbers_of_guest } = body;
       const res = await this.prisma.book_room.update({
         where: { id: +bookRoomId },
         data: {
@@ -76,7 +69,7 @@ export class BookRoomsService {
           arrival_date: new Date(arrival_date),
           departure_date: new Date(departure_date),
           numbers_of_guest,
-          user_id,
+          user_id: +user.id,
         },
       });
       return {

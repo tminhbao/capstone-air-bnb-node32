@@ -32,10 +32,19 @@ export class PlacesService {
   async getAllPlacesPagination(
     pageIndex: number,
     pageSize: number,
+    keyword: string,
   ): Promise<any> {
     try {
       try {
         const res = await this.prisma.place.findMany({
+          where: {
+            OR: [
+              { place_name: { contains: keyword } },
+              { province: { contains: keyword } },
+              { country: { contains: keyword } },
+              { image: { contains: keyword } },
+            ],
+          },
           skip: (+pageIndex - 1) * pageSize,
           take: +pageSize * (pageIndex - 1),
         });
