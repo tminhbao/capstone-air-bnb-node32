@@ -1,0 +1,1329 @@
+{
+	"info": {
+		"_postman_id": "1ad0ef69-334c-4e59-9cd0-2cfe12416161",
+		"name": "Node 32 - Airbnb Capstone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18246341"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "SIGN IN",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"baobao@gmail.com\",\r\n    \"pass_word\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/auth/signin",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SIGN UP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\":\"Trần Minh Bảo\",\r\n    \"email\":\"baobaodayneeee@gmail.com\",\r\n    \"pass_word\":\"123456\",\r\n    \"phone\":\"090909090\",\r\n    \"birth_day\":\"2001-01-01\",\r\n    \"gender\":true,\r\n    \"role\":\"USER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/auth/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "GET ALL COMMENTS",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MTUwOTA4MTI2NzEucG5nIiwicm9sZSI6IlVTRVIifSwiaWF0IjoxNjkzMTU4MzM4LCJleHAiOjE2OTMxNTg5Mzh9.6ZLhth1-qdaeEpDy4YLsNrqvq_FijGOyw0mnD1nQIKA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/comments",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE NEW COMMENT",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MTUwOTA4MTI2NzEucG5nIiwicm9sZSI6IlVTRVIifSwiaWF0IjoxNjkzMTU4MzM4LCJleHAiOjE2OTMxNTg5Mzh9.6ZLhth1-qdaeEpDy4YLsNrqvq_FijGOyw0mnD1nQIKA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJmdWxsX25hbWUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicGFzc193b3JkIjoiIiwicGhvbmUiOm51bGwsImJpcnRoX2RheSI6IjIwMDgtMTEtMTEiLCJnZW5kZXIiOiJOYW0iLCJyb2xlIjoiQURNSU4ifSwiaWF0IjoxNjkxMDAyNzk1LCJleHAiOjE2OTEwMDMwOTV9.TE6KuGDgsdLcCgdd_sb76t7kNqcfcCEnlYycJte1Z_I",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"room_id\":1,\r\n   \"date_comment\":\"2023-08-20\",\r\n   \"content\":\"Phòng quá là đẹp\",\r\n   \"stars\":5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/comments",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE COMMENT",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MTUwOTA4MTI2NzEucG5nIiwicm9sZSI6IlVTRVIifSwiaWF0IjoxNjkzMTU4MzM4LCJleHAiOjE2OTMxNTg5Mzh9.6ZLhth1-qdaeEpDy4YLsNrqvq_FijGOyw0mnD1nQIKA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"room_id\":1,\r\n    \"date_comment\":\"2001-01-01\",\r\n    \"content\":\"Phòng quá là đẹp luôn á nhaaaaaa\",\r\n    \"stars\":4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/comments/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"comments",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE COMMENT",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MTUwOTA4MTI2NzEucG5nIiwicm9sZSI6IlVTRVIifSwiaWF0IjoxNjkzMTU4MzM4LCJleHAiOjE2OTMxNTg5Mzh9.6ZLhth1-qdaeEpDy4YLsNrqvq_FijGOyw0mnD1nQIKA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/comments/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"comments",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET COMMENTS BY ROOM ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MTUwOTA4MTI2NzEucG5nIiwicm9sZSI6IlVTRVIifSwiaWF0IjoxNjkzMTU4MzM4LCJleHAiOjE2OTMxNTg5Mzh9.6ZLhth1-qdaeEpDy4YLsNrqvq_FijGOyw0mnD1nQIKA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/comments/get-comments-by-room-id/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"comments",
+								"get-comments-by-room-id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "GET ALL USERS",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MTUwOTA4MTI2NzEucG5nIiwicm9sZSI6IlVTRVIifSwiaWF0IjoxNjkzMTU4MzM4LCJleHAiOjE2OTMxNTg5Mzh9.6ZLhth1-qdaeEpDy4YLsNrqvq_FijGOyw0mnD1nQIKA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE NEW USER",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MTUwOTA4MTI2NzEucG5nIiwicm9sZSI6IlVTRVIifSwiaWF0IjoxNjkzMTU4MzM4LCJleHAiOjE2OTMxNTg5Mzh9.6ZLhth1-qdaeEpDy4YLsNrqvq_FijGOyw0mnD1nQIKA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\": \"Nguyễn Đức Tấn Tấn\",\r\n    \"email\": \"aaaaaaaaaa@gmail.com\",\r\n    \"pass_word\": \"12345678\",\r\n    \"phone\": \"1111111\",\r\n    \"birth_day\": \"2008-11-11\",\r\n    \"gender\": true,\r\n    \"avatar\": \"\",\r\n    \"role\": \"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE USER",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MTUwOTA4MTI2NzEucG5nIiwicm9sZSI6IlVTRVIifSwiaWF0IjoxNjkzMTU4MzM4LCJleHAiOjE2OTMxNTg5Mzh9.6ZLhth1-qdaeEpDy4YLsNrqvq_FijGOyw0mnD1nQIKA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/users?userId=11",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET USER PAGINATION",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MTUwOTA4MTI2NzEucG5nIiwicm9sZSI6IlVTRVIifSwiaWF0IjoxNjkzMTU4MzM4LCJleHAiOjE2OTMxNTg5Mzh9.6ZLhth1-qdaeEpDy4YLsNrqvq_FijGOyw0mnD1nQIKA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/users/pagination?pageIndex=2&pageSize=2&keyword=tấn",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"pagination"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "2"
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								},
+								{
+									"key": "keyword",
+									"value": "tấn"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET USER DETAIL BY USER ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MTUwOTA4MTI2NzEucG5nIiwicm9sZSI6IlVTRVIifSwiaWF0IjoxNjkzMTU4MzM4LCJleHAiOjE2OTMxNTg5Mzh9.6ZLhth1-qdaeEpDy4YLsNrqvq_FijGOyw0mnD1nQIKA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/users/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE USER INFO",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MTUwOTA4MTI2NzEucG5nIiwicm9sZSI6IlVTRVIifSwiaWF0IjoxNjkzMTU4MzM4LCJleHAiOjE2OTMxNTg5Mzh9.6ZLhth1-qdaeEpDy4YLsNrqvq_FijGOyw0mnD1nQIKA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\": \"admin new\",\r\n    \"email\": \"admin@gmail.com\",\r\n    \"pass_word\": \"\",\r\n    \"phone\": \"1111111111\",\r\n    \"birth_day\": \"2008-11-11\",\r\n    \"gender\": true,\r\n    \"avatar\": \"\",\r\n    \"role\": \"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/users/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SEARCH USER BY NAME",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MTUwOTA4MTI2NzEucG5nIiwicm9sZSI6IlVTRVIifSwiaWF0IjoxNjkzMTU4MzM4LCJleHAiOjE2OTMxNTg5Mzh9.6ZLhth1-qdaeEpDy4YLsNrqvq_FijGOyw0mnD1nQIKA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/users/search/tấn",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"search",
+								"tấn"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPLOAD AVATAR",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MTUwOTA4MTI2NzEucG5nIiwicm9sZSI6IlVTRVIifSwiaWF0IjoxNjkzMTU4MzM4LCJleHAiOjE2OTMxNTg5Mzh9.6ZLhth1-qdaeEpDy4YLsNrqvq_FijGOyw0mnD1nQIKA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/D:/Downloads/4cc085948eeaa27e0b610b434d37a67f.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/api/users/upload-avatar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"upload-avatar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Places",
+			"item": [
+				{
+					"name": "GET ALL PLACES",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MTUwOTA4MTI2NzEucG5nIiwicm9sZSI6IlVTRVIifSwiaWF0IjoxNjkzMTU4MzM4LCJleHAiOjE2OTMxNTg5Mzh9.6ZLhth1-qdaeEpDy4YLsNrqvq_FijGOyw0mnD1nQIKA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/places",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"places"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE NEW PLACE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MTUwOTA4MTI2NzEucG5nIiwicm9sZSI6IlVTRVIifSwiaWF0IjoxNjkzMTU4MzM4LCJleHAiOjE2OTMxNTg5Mzh9.6ZLhth1-qdaeEpDy4YLsNrqvq_FijGOyw0mnD1nQIKA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"place_name\": \"Phù Cát\",\r\n    \"province\": \"Bình Định\",\r\n    \"country\": \"Việt Nam\",\r\n    \"image\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/places",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"places"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL PLACES PAGINATION",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MzE1ODcyODM2MDRjYzA4NTk0OGVlYWEyN2UwYjYxMGI0MzRkMzdhNjdmLmpwZyIsInJvbGUiOiJVU0VSIn0sImlhdCI6MTY5MzE1OTAwNiwiZXhwIjoxNjkzMTU5NjA2fQ.v4j7F3g6slJMFhj7ft7sCGXivKKNoALMOP3jEL6CEIo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/api/places/pagination?pageIndex=2&pageSize=2&keyword=",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"places",
+								"pagination"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "2"
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								},
+								{
+									"key": "keyword",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET PLACE BY PLACE ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MzE1ODcyODM2MDRjYzA4NTk0OGVlYWEyN2UwYjYxMGI0MzRkMzdhNjdmLmpwZyIsInJvbGUiOiJVU0VSIn0sImlhdCI6MTY5MzE1OTAwNiwiZXhwIjoxNjkzMTU5NjA2fQ.v4j7F3g6slJMFhj7ft7sCGXivKKNoALMOP3jEL6CEIo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/places/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"places",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE PLACE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MzE1ODcyODM2MDRjYzA4NTk0OGVlYWEyN2UwYjYxMGI0MzRkMzdhNjdmLmpwZyIsInJvbGUiOiJVU0VSIn0sImlhdCI6MTY5MzE1OTAwNiwiZXhwIjoxNjkzMTU5NjA2fQ.v4j7F3g6slJMFhj7ft7sCGXivKKNoALMOP3jEL6CEIo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"place_name\": \"Đập Kênh Kênh\",\r\n    \"province\": \"Phù Cát\",\r\n    \"country\": \"Bình Định\",\r\n    \"image\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/places/9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"places",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE PLACE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MzE1ODcyODM2MDRjYzA4NTk0OGVlYWEyN2UwYjYxMGI0MzRkMzdhNjdmLmpwZyIsInJvbGUiOiJVU0VSIn0sImlhdCI6MTY5MzE1OTAwNiwiZXhwIjoxNjkzMTU5NjA2fQ.v4j7F3g6slJMFhj7ft7sCGXivKKNoALMOP3jEL6CEIo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/places/9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"places",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPLOAD IMAGE PLACE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MzE1ODcyODM2MDRjYzA4NTk0OGVlYWEyN2UwYjYxMGI0MzRkMzdhNjdmLmpwZyIsInJvbGUiOiJVU0VSIn0sImlhdCI6MTY5MzE1OTAwNiwiZXhwIjoxNjkzMTU5NjA2fQ.v4j7F3g6slJMFhj7ft7sCGXivKKNoALMOP3jEL6CEIo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/D:/Downloads/my cv/1.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/api/places/upload-image-place?placeId=8",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"places",
+								"upload-image-place"
+							],
+							"query": [
+								{
+									"key": "placeId",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rooms",
+			"item": [
+				{
+					"name": "GET ALL ROOMS",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MzE1ODcyODM2MDRjYzA4NTk0OGVlYWEyN2UwYjYxMGI0MzRkMzdhNjdmLmpwZyIsInJvbGUiOiJVU0VSIn0sImlhdCI6MTY5MzE1OTAwNiwiZXhwIjoxNjkzMTU5NjA2fQ.v4j7F3g6slJMFhj7ft7sCGXivKKNoALMOP3jEL6CEIo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/rooms",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rooms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE NEW ROOM",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MzE1ODcyODM2MDRjYzA4NTk0OGVlYWEyN2UwYjYxMGI0MzRkMzdhNjdmLmpwZyIsInJvbGUiOiJVU0VSIn0sImlhdCI6MTY5MzE1OTAwNiwiZXhwIjoxNjkzMTU5NjA2fQ.v4j7F3g6slJMFhj7ft7sCGXivKKNoALMOP3jEL6CEIo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"room_name\": \"Phòng sang trọng với ban công tại D.1 - 200m đến Bitexco\",\r\n    \"bedroom\": 1,\r\n    \"bed\": 1,\r\n    \"bathroom\": 1,\r\n    \"description\": \"Emmy là Chủ nhà siêu cấp\\r\\nChủ nhà siêu cấp là những chủ nhà có kinh nghiệm, được đánh giá cao và là những người cam kết mang lại quãng thời gian ở tuyệt vời cho khách.\\r\\nTrải nghiệm nhận phòng tuyệt vời\\r\\n100% khách gần đây đã xếp hạng 5 sao cho quy trình nhận phòng.\\r\\nHủy miễn phí trước 28 thg 9.\",\r\n    \"price\": 200,\r\n    \"washing_machine\": true,\r\n    \"iron\": true,\r\n    \"television\": true,\r\n    \"air_conditioner\": false,\r\n    \"wifi\": true,\r\n    \"stove\": false,\r\n    \"parking\": true,\r\n    \"image\": \"https://airbnbnew.cybersoft.edu.vn/images/phong3.png\",\r\n    \"place_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/rooms",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rooms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ROOM BY PLACE ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MzE1ODcyODM2MDRjYzA4NTk0OGVlYWEyN2UwYjYxMGI0MzRkMzdhNjdmLmpwZyIsInJvbGUiOiJVU0VSIn0sImlhdCI6MTY5MzE1OTAwNiwiZXhwIjoxNjkzMTU5NjA2fQ.v4j7F3g6slJMFhj7ft7sCGXivKKNoALMOP3jEL6CEIo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/rooms/get-room-by-place-id?placeId=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rooms",
+								"get-room-by-place-id"
+							],
+							"query": [
+								{
+									"key": "placeId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ROOMS PAGINATION",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MzE1ODcyODM2MDRjYzA4NTk0OGVlYWEyN2UwYjYxMGI0MzRkMzdhNjdmLmpwZyIsInJvbGUiOiJVU0VSIn0sImlhdCI6MTY5MzE1OTYxNSwiZXhwIjoxNjkzMTYwMjE1fQ.QPuXsxMAkbDsFx3cX6XGnJUIbpM-xynmar5s3qtK1xc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/rooms/pagination?pageIndex=1&pageSize=2&keyword",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rooms",
+								"pagination"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								},
+								{
+									"key": "keyword",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ROOM BY ROOM ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MzE1ODcyODM2MDRjYzA4NTk0OGVlYWEyN2UwYjYxMGI0MzRkMzdhNjdmLmpwZyIsInJvbGUiOiJVU0VSIn0sImlhdCI6MTY5MzE1OTYxNSwiZXhwIjoxNjkzMTYwMjE1fQ.QPuXsxMAkbDsFx3cX6XGnJUIbpM-xynmar5s3qtK1xc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/rooms/get-room-by-room-id?roomId=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rooms",
+								"get-room-by-room-id"
+							],
+							"query": [
+								{
+									"key": "roomId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE ROOM",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MzE1ODcyODM2MDRjYzA4NTk0OGVlYWEyN2UwYjYxMGI0MzRkMzdhNjdmLmpwZyIsInJvbGUiOiJVU0VSIn0sImlhdCI6MTY5MzE2MDE0NiwiZXhwIjoxNjkzMTYwNzQ2fQ.gB-8XJ46gvw0JSdpaSnEjRb8exDysnrUMRxRWqaZLaQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"room_name\": \"Phòng sang trọng với ban công tại D.1 - 200m đến Bitexco\",\r\n    \"bedroom\": 1,\r\n    \"bed\": 1,\r\n    \"bathroom\": 1,\r\n    \"description\": \"Emmy là Chủ nhà siêu cấp\\r\\nChủ nhà siêu cấp là những chủ nhà có kinh nghiệm, được đánh giá cao và là những người cam kết mang lại quãng thời gian ở tuyệt vời cho khách.\\r\\nTrải nghiệm nhận phòng tuyệt vời\\r\\n100% khách gần đây đã xếp hạng 5 sao cho quy trình nhận phòng.\\r\\nHủy miễn phí trước 28 thg 9.\",\r\n    \"price\":800,\r\n    \"washing_machine\": true,\r\n    \"iron\": true,\r\n    \"television\": true,\r\n    \"air_conditioner\": false,\r\n    \"wifi\": true,\r\n    \"stove\": false,\r\n    \"parking\": true,\r\n    \"image\": \"https://airbnbnew.cybersoft.edu.vn/images/phong3.png\",\r\n    \"place_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/rooms/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rooms",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE ROOM",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MzE1ODcyODM2MDRjYzA4NTk0OGVlYWEyN2UwYjYxMGI0MzRkMzdhNjdmLmpwZyIsInJvbGUiOiJVU0VSIn0sImlhdCI6MTY5MzE2MDE0NiwiZXhwIjoxNjkzMTYwNzQ2fQ.gB-8XJ46gvw0JSdpaSnEjRb8exDysnrUMRxRWqaZLaQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/rooms/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rooms",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPLOAD IMAGE ROOM",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MzE1ODcyODM2MDRjYzA4NTk0OGVlYWEyN2UwYjYxMGI0MzRkMzdhNjdmLmpwZyIsInJvbGUiOiJVU0VSIn0sImlhdCI6MTY5MzE2MDE0NiwiZXhwIjoxNjkzMTYwNzQ2fQ.gB-8XJ46gvw0JSdpaSnEjRb8exDysnrUMRxRWqaZLaQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/D:/Downloads/my cv/2.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/api/rooms/upload-image-room?roomId=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rooms",
+								"upload-image-room"
+							],
+							"query": [
+								{
+									"key": "roomId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Book-Rooms",
+			"item": [
+				{
+					"name": "GET ALL BOOKED ROOMS",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MzE1ODcyODM2MDRjYzA4NTk0OGVlYWEyN2UwYjYxMGI0MzRkMzdhNjdmLmpwZyIsInJvbGUiOiJVU0VSIn0sImlhdCI6MTY5MzE2MDE0NiwiZXhwIjoxNjkzMTYwNzQ2fQ.gB-8XJ46gvw0JSdpaSnEjRb8exDysnrUMRxRWqaZLaQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/book-rooms",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"book-rooms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE NEW BOOKED ROOMS",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MzE1ODcyODM2MDRjYzA4NTk0OGVlYWEyN2UwYjYxMGI0MzRkMzdhNjdmLmpwZyIsInJvbGUiOiJVU0VSIn0sImlhdCI6MTY5MzE2MDE0NiwiZXhwIjoxNjkzMTYwNzQ2fQ.gB-8XJ46gvw0JSdpaSnEjRb8exDysnrUMRxRWqaZLaQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"room_id\": 1,\r\n    \"arrival_date\": \"2023-07-10\",\r\n    \"departure_date\": \"2023-07-14\",\r\n    \"numbers_of_guest\": 15\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/book-rooms",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"book-rooms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET BOOKED ROOM BY ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MzE1ODcyODM2MDRjYzA4NTk0OGVlYWEyN2UwYjYxMGI0MzRkMzdhNjdmLmpwZyIsInJvbGUiOiJVU0VSIn0sImlhdCI6MTY5MzE2MDE0NiwiZXhwIjoxNjkzMTYwNzQ2fQ.gB-8XJ46gvw0JSdpaSnEjRb8exDysnrUMRxRWqaZLaQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/book-rooms/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"book-rooms",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE BOOKED ROOM",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MzE1ODcyODM2MDRjYzA4NTk0OGVlYWEyN2UwYjYxMGI0MzRkMzdhNjdmLmpwZyIsInJvbGUiOiJVU0VSIn0sImlhdCI6MTY5MzE2MDE0NiwiZXhwIjoxNjkzMTYwNzQ2fQ.gB-8XJ46gvw0JSdpaSnEjRb8exDysnrUMRxRWqaZLaQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"room_id\": 1,\r\n    \"arrival_date\": \"2023-07-10\",\r\n    \"departure_date\": \"2023-07-14\",\r\n    \"numbers_of_guest\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/book-rooms/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"book-rooms",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE BOOKED ROOM",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MzE1ODcyODM2MDRjYzA4NTk0OGVlYWEyN2UwYjYxMGI0MzRkMzdhNjdmLmpwZyIsInJvbGUiOiJVU0VSIn0sImlhdCI6MTY5MzE2MDE0NiwiZXhwIjoxNjkzMTYwNzQ2fQ.gB-8XJ46gvw0JSdpaSnEjRb8exDysnrUMRxRWqaZLaQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/book-rooms/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"book-rooms",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET BOOKED ROOM BY USER ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJmdWxsX25hbWUiOiJUcuG6p24gTWluaCBC4bqjbyIsImVtYWlsIjoiYmFvYmFvQGdtYWlsLmNvbSIsInBhc3Nfd29yZCI6IiQyYiQxMCRNQVJ5YmUyNjU2RUV0bjJ3U2VhOVQudWNtN29nSVhHWktJMmNBdlkuQUNsWjhsaHVXR0ovUyIsInBob25lIjoiMDkwOTA5MDkwIiwiYmlydGhfZGF5IjoiMjAwMS0wMS0wMSIsImdlbmRlciI6dHJ1ZSwiYXZhdGFyIjoiMTY5MzE1ODcyODM2MDRjYzA4NTk0OGVlYWEyN2UwYjYxMGI0MzRkMzdhNjdmLmpwZyIsInJvbGUiOiJVU0VSIn0sImlhdCI6MTY5MzE2MDE0NiwiZXhwIjoxNjkzMTYwNzQ2fQ.gB-8XJ46gvw0JSdpaSnEjRb8exDysnrUMRxRWqaZLaQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/book-rooms/get-by-user/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"book-rooms",
+								"get-by-user",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
