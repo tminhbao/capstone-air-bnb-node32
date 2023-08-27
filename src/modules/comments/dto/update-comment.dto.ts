@@ -5,19 +5,7 @@ export class UpdateCommentDto {
     type: Number,
     example: 1,
   })
-  id?: number;
-
-  @ApiProperty({
-    type: Number,
-    example: 1,
-  })
   room_id: number;
-
-  @ApiProperty({
-    type: Number,
-    example: 1,
-  })
-  user_id: number;
 
   @ApiProperty({
     type: Date,

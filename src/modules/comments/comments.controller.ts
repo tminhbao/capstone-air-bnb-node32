@@ -18,6 +18,7 @@ import {
   ApiBody,
   ApiHeader,
   ApiHeaders,
+  ApiParam,
   ApiTags,
 } from '@nestjs/swagger';
 import { CreateCommentDto } from './dto/create-comment.dto';
@@ -46,7 +47,8 @@ export class CommentsController {
 
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
-  @ApiBody({ type: CreateCommentDto })
+  @ApiBody({ type: UpdateCommentDto })
+  @ApiParam({ name: 'commentId' })
   @ApiBearerAuth()
   @HttpCode(201)
   @Put('/:commentId')

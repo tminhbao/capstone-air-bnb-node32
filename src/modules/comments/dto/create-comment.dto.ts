@@ -14,12 +14,6 @@ export class CreateCommentDto {
   room_id: number;
 
   @ApiProperty({
-    type: Number,
-    example: 1,
-  })
-  user_id: number;
-
-  @ApiProperty({
     type: Date,
     format: 'YYYY-MM-DD',
     example: '2001-01-01',

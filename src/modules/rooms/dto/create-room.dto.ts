@@ -8,12 +8,6 @@ export class CreateRoomDto {
   room_name: string;
 
   @ApiProperty({
-    type: String,
-    example: 1,
-  })
-  user_id: number;
-
-  @ApiProperty({
     type: Number,
     example: 1,
   })

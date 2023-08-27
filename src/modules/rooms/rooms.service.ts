@@ -2,6 +2,7 @@ import { HttpException, Injectable } from '@nestjs/common';
 import { CreateRoomDto } from './dto/create-room.dto';
 import { UpdateRoomDto } from './dto/update-room.dto';
 import { PrismaClient } from '@prisma/client';
+import { UserDto } from '../users/dto/users.dto';
 
 @Injectable()
 export class RoomsService {
@@ -18,10 +19,10 @@ export class RoomsService {
     }
   }
 
-  async createNewRoom(body: CreateRoomDto): Promise<any> {
+  async createNewRoom(body: CreateRoomDto, user: UserDto): Promise<any> {
     try {
       const res = await this.prisma.room.create({
-        data: body,
+        data: { ...body, user_id: +user.id },
       });
       return {
         message: 'Create a new room successfully',
@@ -50,8 +51,6 @@ export class RoomsService {
     try {
       try {
         const res = await this.prisma.room.findMany({
-          // skip: +pageSize * (+pageIndex - 1),
-          // take: +pageSize * (+pageIndex - 1),
           skip: +pageIndex - 1,
           take: +pageSize,
         });
@@ -81,11 +80,11 @@ export class RoomsService {
     }
   }
 
-  async updateRoom(body: UpdateRoomDto, roomId: number) {
+  async updateRoom(body: UpdateRoomDto, roomId: number, user: UserDto) {
     try {
       const res = await this.prisma.room.update({
         where: { id: +roomId },
-        data: body,
+        data: { ...body, user_id: +user?.id },
       });
       return {
         message: 'Update room successfully',

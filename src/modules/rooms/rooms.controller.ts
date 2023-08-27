@@ -11,6 +11,7 @@ import {
   Query,
   UseInterceptors,
   UploadedFile,
+  Req,
 } from '@nestjs/common';
 import { RoomsService } from './rooms.service';
 import { CreateRoomDto } from './dto/create-room.dto';
@@ -37,8 +38,8 @@ export class RoomsController {
   @ApiBearerAuth()
   @HttpCode(201)
   @Post()
-  createNewRoom(@Body() body: CreateRoomDto): Promise<any> {
-    return this.roomsService.createNewRoom(body);
+  createNewRoom(@Body() body: CreateRoomDto, @Req() req): Promise<any> {
+    return this.roomsService.createNewRoom(body, req.user.user);
   }
 
   @ApiBearerAuth()
@@ -76,8 +77,12 @@ export class RoomsController {
   @ApiBearerAuth()
   @HttpCode(200)
   @Put('/:roomId')
-  updateRoom(@Body() body: UpdateRoomDto, @Param('roomId') roomId: number) {
-    return this.roomsService.updateRoom(body, roomId);
+  updateRoom(
+    @Body() body: UpdateRoomDto,
+    @Param('roomId') roomId: number,
+    @Req() req: any,
+  ) {
+    return this.roomsService.updateRoom(body, roomId, req.user.user);
   }
 
   @ApiBearerAuth()
