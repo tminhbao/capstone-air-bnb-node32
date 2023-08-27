@@ -45,8 +45,8 @@ export class PlacesService {
               { image: { contains: keyword } },
             ],
           },
-          skip: (+pageIndex - 1) * pageSize,
-          take: +pageSize * (pageIndex - 1),
+          skip: +pageIndex - 1,
+          take: +pageSize,
         });
         return {
           message: 'Get all places pagination successfully',

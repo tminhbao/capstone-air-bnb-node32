@@ -35,11 +35,11 @@ export class RoomsService {
 
   async getRoomByPlaceId(placeId: number): Promise<any> {
     try {
-      const res = await this.prisma.room.findFirst({
+      const res = await this.prisma.room.findMany({
         where: { place_id: +placeId },
       });
       return {
-        message: 'Get room successfully',
+        message: 'Get room by placeid successfully',
         content: res,
       };
     } catch (error) {

@@ -33,6 +33,14 @@ export class UsersService {
         avatar,
         role,
       } = body;
+      const userExist = await this.prisma.user.findFirst({
+        where: { email: email },
+      });
+      if (userExist) {
+        return {
+          message: 'Email already exists',
+        };
+      }
       const res = await this.prisma.user.create({
         data: {
           full_name,

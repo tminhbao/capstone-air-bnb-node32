@@ -54,7 +54,7 @@ export class RoomsController {
   @ApiBearerAuth()
   @HttpCode(200)
   @Get('/get-room-by-place-id')
-  getRoomByPlaceId(@Param('placeId') placeId: number): Promise<any> {
+  getRoomByPlaceId(@Query('placeId') placeId: number): Promise<any> {
     return this.roomsService.getRoomByPlaceId(placeId);
   }
 
@@ -62,8 +62,8 @@ export class RoomsController {
   @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @HttpCode(200)
-  @Get('/:roomId')
-  getRoomByRoomId(@Param('roomId') roomId: number) {
+  @Get('/get-room-by-room-id')
+  getRoomByRoomId(@Query('roomId') roomId: number) {
     return this.roomsService.getRoomByRoomId(roomId);
   }
 
